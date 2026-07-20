@@ -1,4 +1,4 @@
-package com.example.patterns.strategy.service;
+package com.example.patterns.strategy;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

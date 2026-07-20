@@ -1,7 +1,7 @@
-package com.example.patterns.strategy.service.impl;
+package com.example.patterns.strategy.impl;
 
-import com.example.patterns.strategy.service.Notification;
-import com.example.patterns.strategy.service.NotificationType;
+import com.example.patterns.strategy.Notification;
+import com.example.patterns.strategy.NotificationType;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

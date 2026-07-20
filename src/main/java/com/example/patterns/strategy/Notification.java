@@ -1,4 +1,4 @@
-package com.example.patterns.strategy.service;
+package com.example.patterns.strategy;
 
 public interface Notification {
     void sendMessageToUser(String message);

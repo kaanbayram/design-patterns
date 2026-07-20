@@ -1,12 +1,14 @@
 package com.example.patterns.runner;
 
-import com.example.patterns.decoder.service.BalanceService;
-import com.example.patterns.decoder.service.PaymentMethod;
-import com.example.patterns.decoder.service.PaymentMethodDecorator;
-import com.example.patterns.decoder.service.impl.CreditCard;
-import com.example.patterns.decoder.service.impl.FoodCard;
-import com.example.patterns.strategy.service.NotificationService;
-import com.example.patterns.strategy.service.NotificationType;
+import com.example.patterns.decoder.BalanceService;
+import com.example.patterns.decoder.PaymentMethod;
+import com.example.patterns.decoder.PaymentMethodDecorator;
+import com.example.patterns.decoder.impl.CreditCard;
+import com.example.patterns.decoder.impl.FoodCard;
+import com.example.patterns.factory.VehicleManagement;
+import com.example.patterns.factory.models.VehicleType;
+import com.example.patterns.strategy.NotificationService;
+import com.example.patterns.strategy.NotificationType;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -22,6 +24,7 @@ public class ApplicationRunner {
     private final CreditCard creditCard;
     private final FoodCard foodCard;
     private final BalanceService balanceService;
+    private final VehicleManagement vehicleManagement;
 
     @EventListener(ApplicationReadyEvent.class)
     public void run() {
@@ -32,11 +35,12 @@ public class ApplicationRunner {
 
         // decorator
         PaymentMethod creditCardPayment = new PaymentMethodDecorator(creditCard, balanceService, BigDecimal.valueOf(250));
+        PaymentMethod foodCardPayment = new PaymentMethodDecorator(foodCard, balanceService, BigDecimal.valueOf(50));
+
+        foodCardPayment.pay();
         creditCardPayment.pay();
 
-        PaymentMethod foodCardPayment = new PaymentMethodDecorator(foodCard, balanceService, BigDecimal.valueOf(50));
-        foodCardPayment.pay();
-
-        //
+        // factory pattern
+        vehicleManagement.roadAssistance(VehicleType.MOTORCYCLE);
     }
 }

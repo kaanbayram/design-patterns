@@ -1,6 +1,6 @@
-package com.example.patterns.decoder.service.impl;
+package com.example.patterns.decoder.impl;
 
-import com.example.patterns.decoder.service.PaymentMethod;
+import com.example.patterns.decoder.PaymentMethod;
 import org.springframework.stereotype.Service;
 
 @Service

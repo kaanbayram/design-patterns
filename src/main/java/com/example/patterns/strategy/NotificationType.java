@@ -1,4 +1,4 @@
-package com.example.patterns.strategy.service;
+package com.example.patterns.strategy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
