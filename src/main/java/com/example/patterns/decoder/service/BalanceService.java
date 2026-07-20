@@ -1,0 +1,13 @@
+package com.example.patterns.decoder.service;
+
+import org.springframework.stereotype.Service;
+
+import java.math.BigInteger;
+
+@Service
+public class BalanceService {
+    Boolean balanceCheck(BigInteger price) {
+        //getting clients balance and compare etc...
+        return true;
+    }
+}

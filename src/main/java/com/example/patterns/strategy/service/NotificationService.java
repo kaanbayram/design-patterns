@@ -1,21 +1,28 @@
 package com.example.patterns.strategy.service;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class NotificationService {
 
-    private final Map<String,Notification> strategies;
+    private final List<Notification> notificationList;
+    private Map<NotificationType, Notification> notificationStrategies;
 
-    public Boolean sendMessageToUser(String type, String message) {
+    @PostConstruct
+    private void init() {
+        notificationStrategies = notificationList.stream().collect(Collectors.toMap(Notification::getType, n -> n));
+    }
+
+    public void sendMessageToUser(NotificationType type, String message) {
         try {
-            strategies.get(type).sendMessageToUser("Test");
-            return true;
+            notificationStrategies.get(type).sendMessageToUser(message);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
