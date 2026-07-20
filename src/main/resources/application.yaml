@@ -8,6 +8,7 @@ spring:
           time_zone: UTC
   kafka:
     bootstrap-servers: localhost:9092
-    consumer:
+    outbox:
+      consumer:
       group-id: patterns-consumer-group
       topic-name: checkout.completed
