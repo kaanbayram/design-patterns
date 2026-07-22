@@ -1,4 +1,4 @@
-package com.example.patterns.decoder;
+package com.example.patterns.decorator;
 
 public interface PaymentMethod {
     void pay();

@@ -1,17 +1,21 @@
 package com.example.patterns.runner;
 
-import com.example.patterns.decoder.BalanceService;
-import com.example.patterns.decoder.PaymentMethod;
-import com.example.patterns.decoder.PaymentMethodDecorator;
-import com.example.patterns.decoder.impl.CreditCard;
-import com.example.patterns.decoder.impl.FoodCard;
+import com.example.patterns.decorator.BalanceService;
+import com.example.patterns.decorator.PaymentMethod;
+import com.example.patterns.decorator.PaymentMethodDecorator;
+import com.example.patterns.decorator.impl.CreditCard;
+import com.example.patterns.decorator.impl.FoodCard;
 import com.example.patterns.factory.VehicleManagement;
 import com.example.patterns.factory.models.VehicleType;
+import com.example.patterns.outbox.models.dto.CheckoutDto;
+import com.example.patterns.outbox.service.CheckoutService;
 import com.example.patterns.strategy.NotificationService;
 import com.example.patterns.strategy.NotificationType;
 import lombok.AllArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -25,7 +29,9 @@ public class ApplicationRunner {
     private final FoodCard foodCard;
     private final BalanceService balanceService;
     private final VehicleManagement vehicleManagement;
+    private final CheckoutService checkoutService;
 
+    @Order(2)
     @EventListener(ApplicationReadyEvent.class)
     public void run() {
         // strategy
@@ -42,5 +48,22 @@ public class ApplicationRunner {
 
         // factory pattern
         vehicleManagement.roadAssistance(VehicleType.MOTORCYCLE);
+
+
+        //outbox
+        runOutbox();
+    }
+
+    private void runOutbox() {
+        CheckoutDto checkout = CheckoutDto.builder()
+                .userId(new ObjectId().toHexString())
+                .checkoutId(new ObjectId().toHexString())
+                .totalAmount(BigDecimal.valueOf(Double.parseDouble("12.5")))
+                .build();
+
+        checkoutService.upsertCheckout(checkout);
+
+        checkoutService.upsertCheckout(checkout);
+        checkoutService.upsertCheckout(checkout);
     }
 }

@@ -10,5 +10,7 @@ spring:
     bootstrap-servers: localhost:9092
     outbox:
       consumer:
-      group-id: patterns-consumer-group
-      topic-name: checkout.completed
+        group-id: patterns-consumer-group
+        topic-name: cdc.test.outbox_checkout
+      producer:
+        topic-name: checkout.completed

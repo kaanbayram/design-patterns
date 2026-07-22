@@ -1,4 +1,4 @@
-package com.example.patterns.decoder;
+package com.example.patterns.decorator;
 
 import org.springframework.stereotype.Service;
 

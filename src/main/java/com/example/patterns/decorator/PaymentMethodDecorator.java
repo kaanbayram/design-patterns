@@ -1,4 +1,4 @@
-package com.example.patterns.decoder;
+package com.example.patterns.decorator;
 
 import lombok.extern.slf4j.Slf4j;
 
