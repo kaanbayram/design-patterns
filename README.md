@@ -14,6 +14,6 @@
   
 <br><br>
 
-## OutBox Inbox Example - LLD Map
+## Outbox Inbox Example - LLD Map
 
 ![OutboxInboxLLD](docs/outbox_inbox_example.jpg)
