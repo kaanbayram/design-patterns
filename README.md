@@ -11,9 +11,9 @@
 - Factory
 - Outbox
 - Inbox  (Outbox and inbox pattern in the same directory and working with the same structure.)
+  
+<br><br>
 
+## OutBox Inbox Example - LLD Map
 
-
-
-
-
+![OutboxInboxLLD](docs/outbox_inbox_example.jpg)
