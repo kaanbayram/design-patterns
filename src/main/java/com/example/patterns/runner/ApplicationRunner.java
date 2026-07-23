@@ -50,11 +50,11 @@ public class ApplicationRunner {
         vehicleManagement.roadAssistance(VehicleType.MOTORCYCLE);
 
 
-        //outbox
-        runOutbox();
+        //outbox-inbox
+        runOutboxInbox();
     }
 
-    private void runOutbox() {
+    private void runOutboxInbox() {
         CheckoutDto checkout = CheckoutDto.builder()
                 .userId(new ObjectId().toHexString())
                 .checkoutId(new ObjectId().toHexString())
