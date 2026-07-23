@@ -1,4 +1,4 @@
-package com.example.patterns.outbox.models.entity;
+package com.example.patterns.outbox_inbox.models.entity;
 
 import lombok.Getter;
 import lombok.Setter;

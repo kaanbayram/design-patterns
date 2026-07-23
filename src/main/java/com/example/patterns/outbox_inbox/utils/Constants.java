@@ -1,4 +1,4 @@
-package com.example.patterns.outbox.utils;
+package com.example.patterns.outbox_inbox.utils;
 
 import lombok.experimental.UtilityClass;
 

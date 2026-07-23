@@ -1,10 +1,10 @@
-package com.example.patterns.outbox.mapper;
+package com.example.patterns.outbox_inbox.mapper;
 
-import com.example.patterns.outbox.utils.Constants;
-import com.example.patterns.outbox.models.entity.Checkout;
-import com.example.patterns.outbox.models.entity.CheckoutOutboxEvent;
-import com.example.patterns.outbox.models.enums.CheckoutType;
-import com.example.patterns.outbox.models.enums.OutboxStatus;
+import com.example.patterns.outbox_inbox.utils.Constants;
+import com.example.patterns.outbox_inbox.models.entity.Checkout;
+import com.example.patterns.outbox_inbox.models.entity.CheckoutOutboxEvent;
+import com.example.patterns.outbox_inbox.models.enums.CheckoutType;
+import com.example.patterns.outbox_inbox.models.enums.OutboxStatus;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

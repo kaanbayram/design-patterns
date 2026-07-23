@@ -1,11 +1,9 @@
-package com.example.patterns.outbox.models;
+package com.example.patterns.outbox_inbox.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Builder
 @Getter
 @Setter
 public class KafkaEvent {

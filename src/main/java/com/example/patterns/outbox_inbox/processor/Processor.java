@@ -1,9 +1,8 @@
-package com.example.patterns.outbox.processor;
+package com.example.patterns.outbox_inbox.processor;
 
-import com.example.patterns.outbox.models.KafkaEvent;
+import com.example.patterns.outbox_inbox.models.KafkaEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 @Component
@@ -19,4 +18,6 @@ public abstract class Processor<T> {
     protected KafkaEvent convertToEventObject(String kafkaEvent) {
         return objectMapper.readValue(kafkaEvent, KafkaEvent.class);
     }
+
+    protected abstract void handleEvent(String event);
 }

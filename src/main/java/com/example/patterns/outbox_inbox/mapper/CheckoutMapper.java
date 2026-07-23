@@ -1,7 +1,7 @@
-package com.example.patterns.outbox.mapper;
+package com.example.patterns.outbox_inbox.mapper;
 
-import com.example.patterns.outbox.models.dto.CheckoutDto;
-import com.example.patterns.outbox.models.entity.Checkout;
+import com.example.patterns.outbox_inbox.models.dto.CheckoutDto;
+import com.example.patterns.outbox_inbox.models.entity.Checkout;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

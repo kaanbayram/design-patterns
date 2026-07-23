@@ -1,4 +1,4 @@
-package com.example.patterns.outbox.models.enums;
+package com.example.patterns.outbox_inbox.models.enums;
 
 
 import lombok.AllArgsConstructor;
